@@ -73,7 +73,7 @@
 
 <div class="container" id="login-container">
     <h2>Login</h2>
-    <form action="#" method="POST">
+    <form id="loginForm" action="#" method="POST">
         <input type="text" placeholder="Email" name="email" required>
         <input type="password" placeholder="Password" name="password" required>
         <button type="submit">Login</button>
@@ -116,11 +116,6 @@
 </div>
 
 <script>
-    const defaultCredentials = {
-        email: "admin@example.com",
-        password: "Admin@123"
-    };
-
     function toggleForm(form) {
         document.getElementById('login-container').style.display = 'none';
         document.getElementById('signup-container').style.display = 'none';
@@ -138,6 +133,21 @@
         }
         return true;
     }
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const email = this.email.value;
+        const password = this.password.value;
+
+        // Replace with your actual authentication logic
+        if (email === "admin@example.com" && password === "Admin@123") {
+            sessionStorage.setItem("loggedIn", "true");
+            window.location.href = "dashboard.html"; // Redirect to dashboard
+        } else {
+            alert("Invalid credentials");
+        }
+    });
+
 </script>
 
 </body>

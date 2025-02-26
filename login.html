@@ -7,11 +7,12 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-image: url('https://static.vecteezy.com/system/resources/previews/002/917/822/original/set-of-female-maid-or-housekeeper-in-cartoon-characters-free-vector.jpg');
+            background-image: url('https://techsquadteam.com/assets/profile/blogimages/2c989af64796b7a1a702043963c8f661.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 80vh;
@@ -22,7 +23,7 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 320px;
             text-align: center;
         }
         h2 {
@@ -60,6 +61,12 @@
         .toggle-links a:hover {
             text-decoration: underline;
         }
+        #signup-container {
+            background-image: url('https://media.istockphoto.com/id/1576334176/vector/team-of-cleaners-vector-concept.jpg?s=612x612&w=0&k=20&c=8UgAF1v56qEEY0L1KRzQGhDotef_CMZOZ4FTBlu1bfs=');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
     </style>
 </head>
 <body>
@@ -67,7 +74,7 @@
 <div class="container" id="login-container">
     <h2>Login</h2>
     <form action="#" method="POST">
-        <input type="text" placeholder="Username" name="username" required>
+        <input type="text" placeholder="Email" name="email" required>
         <input type="password" placeholder="Password" name="password" required>
         <button type="submit">Login</button>
     </form>
@@ -109,11 +116,27 @@
 </div>
 
 <script>
+    const defaultCredentials = {
+        email: "admin@example.com",
+        password: "Admin@123"
+    };
+
     function toggleForm(form) {
         document.getElementById('login-container').style.display = 'none';
         document.getElementById('signup-container').style.display = 'none';
         document.getElementById('forgot-password-container').style.display = 'none';
         document.getElementById(form + '-container').style.display = 'block';
+    }
+
+    function validateSignupForm() {
+        let password = document.getElementById("password").value;
+        let confirmPassword = document.getElementById("confirm_password").value;
+
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return false;
+        }
+        return true;
     }
 </script>
 
